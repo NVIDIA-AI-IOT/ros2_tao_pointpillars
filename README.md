@@ -128,7 +128,7 @@ After specifying your parameters, build and source the package again before laun
 
 ## Limitations
 - Inference batch size: Currently the TensorRT engine for PointPillars model can only run for batch size 1.
-- Detection3DArray visualization: RViz currently does not support Detection3DArray messages. We provide a simple workflow to visualize results of this node [here](https://gitlab-master.nvidia.com/asawareeb/ros2-pointcloud2-to-bin/-/tree/main).
+- Detection3DArray visualization: RViz currently does not support Detection3DArray messages. We provide a simple workflow to visualize results of this node [here](https://github.com/NVIDIA-AI-IOT/viz_3Dbbox_ros2_pointpillars).
 
 ## Related projects
 [viz_3Dbbox_ros2_pointpillars](https://github.com/NVIDIA-AI-IOT/viz_3Dbbox_ros2_pointpillars): A visualization tool for 3D bounding box results of TAO-PointPillars.
