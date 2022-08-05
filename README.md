@@ -3,7 +3,7 @@
 This is a ROS2 node for 3D object detection in point clouds using [TAO-PointPillars](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/tao/models/pointpillarnet) for inference with TensorRT.
 
 <p align="middle">
-<img src="images/feature_gif.gif"  height="50%" width="50%">
+<img src="images/feature_gif.gif"  height="75%" width="75%">
 </p>
 
 Node details:
@@ -120,6 +120,12 @@ Change the second argument to the topic name of your choice and it will be remap
 After specifying your parameters, build and source the package again before launching the node as per step 7 above.
 
 ![](/images/car_detection.PNG)*Top left is an image from the zvision camera's point of view; at the bottom is a point cloud from the zvision lidar; and top right is the detection results using TAO-PointPillars.*
+
+<p align="center">
+ <img src="/images/car_detection.PNG" alt="results_img" height="50%" width="50%"/>
+    <br>
+    <em>Top left is an image from the zvision camera's point of view; at the bottom is a point cloud from the zvision lidar; and top right is the detection results using TAO-PointPillars.</em>
+</p>
 
 <figure>
    <img src="/images/car_detection.PNG" height="75%" width="75%">
