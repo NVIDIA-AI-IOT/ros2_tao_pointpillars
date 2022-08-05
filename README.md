@@ -119,19 +119,12 @@ Change the second argument to the topic name of your choice and it will be remap
 
 After specifying your parameters, build and source the package again before launching the node as per step 7 above.
 
-![](/images/car_detection.PNG)*Top left is an image from the zvision camera's point of view; at the bottom is a point cloud from the zvision lidar; and top right is the detection results using TAO-PointPillars.*
 
 <p align="center">
- <img src="/images/car_detection.PNG" alt="results_img" height="50%" width="50%"/>
+ <img src="/images/car_detection.PNG" alt="results_img" height="75%" width="75%"/>
     <br>
     <em>Top left is an image from the zvision camera's point of view; at the bottom is a point cloud from the zvision lidar; and top right is the detection results using TAO-PointPillars.</em>
 </p>
-
-<figure>
-   <img src="/images/car_detection.PNG" height="75%" width="75%">
-   <figcaption>Top left is an image from the zvision camera's point of view; at the bottom is a point cloud from the zvision lidar; and top right is the detection results using TAO-PointPillars.</figcaption>
-</figure>
-
 
 ## Limitations
 - Inference batch size: Currently the TensorRT engine for PointPillars model can only run for batch size 1.
