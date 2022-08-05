@@ -75,7 +75,7 @@ Clone this repository in `pointpillars_ws/src`. The directory structure should l
 
 `rosdep install -i --from-path src --rosdistro foxy -y`
 
-6. Specify parameters including the path to your TensorRT engine in the launch file. Please see _Modifying parameters in the launch file_ below for how to do this.
+6. Specify parameters including the path to your TensorRT engine in the launch file. Please see [Modifying parameters in the launch file](https://github.com/NVIDIA-AI-IOT/ros2_tao_pointpillars#modifying-parameters-in-the-launch-file) below for how to do this.
 
 7. Build and source the package files:
 ```
@@ -84,7 +84,7 @@ colcon build --packages-select pp_infer
 ```
 8. Run the node using the launch file:
 `ros2 launch pp_infer pp_infer_launch.py`
-9. Make sure data is being published on the **/point_cloud** topic. If your point cloud data is being published on a different topic name, you can remap it to **/point_cloud** (please see _Modifying parameters in the launch file_ below). For good performance, point cloud input data should be from the same lidar and configuration that was used for training the model.
+9. Make sure data is being published on the **/point_cloud** topic. If your point cloud data is being published on a different topic name, you can remap it to **/point_cloud** (please see [Modifying parameters in the launch file](https://github.com/NVIDIA-AI-IOT/ros2_tao_pointpillars#modifying-parameters-in-the-launch-file) below). For good performance, point cloud input data should be from the same lidar and configuration that was used for training the model.
 10. Inference results will be published on the **/bbox** topic as Detection3DArray messages. Each Detection3DArray message has the following information:
 - header: The time stamp and frame id following [this](http://docs.ros.org/en/lunar/api/std_msgs/html/msg/Header.html) format.
 - detections: List of detected objects with following information for each:
