@@ -55,7 +55,7 @@ Argument definitions:
 
 3. Source your ROS2 environment:
 `source /opt/ros/foxy/setup.bash`
-4. Create a ROS2 workspace:
+4. Create a ROS2 workspace (more information can be found [here](https://docs.ros.org/en/foxy/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html)):
 ```
 mkdir -p pointpillars_ws/src
 cd pointpillars_ws/src
