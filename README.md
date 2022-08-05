@@ -2,13 +2,9 @@
 
 This is a ROS2 node for 3D object detection in point clouds using [TAO-PointPillars](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/tao/models/pointpillarnet) for inference with TensorRT.
 
-
-![](/images/car_detection.PNG)*Top left is an image from the zvision camera's point of view; at the bottom is a point cloud from the zvision lidar; and top right is the detection results using TAO-PointPillars.*
-
-<figure>
-   <img src="/images/car_detection.PNG" height="75%" width="75%">
-   <figcaption>Top left is an image from the zvision camera's point of view; at the bottom is a point cloud from the zvision lidar; and top right is the detection results using TAO-PointPillars.</figcaption>
-</figure>
+<p align="middle">
+<img src="images/feature_gif.gif"  height="50%" width="50%">
+</p>
 
 Node details:
 - Input: Takes point cloud data in [PointCloud2](http://docs.ros.org/en/lunar/api/sensor_msgs/html/msg/PointCloud2.html) format on the topic `/point_cloud`. Each point in the data must contain 4 features - (x, y, z) position coordinates and intensity. ROS2 bags for testing the node, provided by Zvision, can be found [here](https://github.com/ZVISION-lidar/zvision_ugv_data).
@@ -16,7 +12,7 @@ Node details:
 - Inference model: You can train a model on your own dataset using [NVIDIA TAO Toolkit](https://developer.nvidia.com/tao-toolkit) following instructions [here](https://docs.nvidia.com/tao/tao-toolkit/text/point_cloud/index.html). We used a TensorRT engine generated from a TAO-PointPillars model trained to detect objects of 3 classes - Vehicle, Pedestrian and Cyclist. 
 
 <p align="center" width="100%">
-<img src="images/workflow_1.PNG"  height="50%" width="50%">
+<img src="images/workflow_1.PNG"  height="75%" width="75%">
 </p>
 
 ## Requirements
@@ -123,9 +119,12 @@ Change the second argument to the topic name of your choice and it will be remap
 
 After specifying your parameters, build and source the package again before launching the node as per step 7 above.
 
-<p align="middle">
-<img src="images/feature_gif.gif"  height="50%" width="50%">
-</p>
+![](/images/car_detection.PNG)*Top left is an image from the zvision camera's point of view; at the bottom is a point cloud from the zvision lidar; and top right is the detection results using TAO-PointPillars.*
+
+<figure>
+   <img src="/images/car_detection.PNG" height="75%" width="75%">
+   <figcaption>Top left is an image from the zvision camera's point of view; at the bottom is a point cloud from the zvision lidar; and top right is the detection results using TAO-PointPillars.</figcaption>
+</figure>
 
 
 ## Limitations
