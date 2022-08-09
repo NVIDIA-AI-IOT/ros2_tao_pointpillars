@@ -113,7 +113,7 @@ Parameters such as the engine path and detection threshold can be specified in t
 
 Remappings: This node subscribes to the **/point_cloud** topic, but topic names can be changed through remapping. If your point cloud is coming from a different topic name, you can modify the following line in `pp_infer_launch.py`:
 
-`remappings=[('/point_cloud', '/ns3/zvision_lidar_points')]`
+`remappings=[('/point_cloud', '/my_topic_name')]`
 
 Change the second argument to the topic name of your choice and it will be remapped to **/point_cloud**. 
 
