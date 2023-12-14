@@ -43,7 +43,7 @@
 #include "sensor_msgs/msg/point_cloud2.hpp"
 #include "vision_msgs/msg/detection3_d_array.hpp"
 #include "pcl_conversions/pcl_conversions.h"
-#include "../include/pp_infer/point_cloud2_iterator.hpp"
+#include "sensor_msgs/point_cloud2_iterator.hpp"
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
 
@@ -73,7 +73,7 @@ public:
   MinimalPublisher()
   : Node("minimal_publisher")
   {
-    this->declare_parameter("class_names");
+    this->declare_parameter<std::vector<std::string>>("class_names");
     this->declare_parameter<float>("nms_iou_thresh", 0.01);
     this->declare_parameter<int>("pre_nms_top_n", 4096);
     this->declare_parameter<std::string>("model_path", "");
@@ -94,10 +94,13 @@ public:
     cudaStream_t stream = NULL;
     pointpillar = new PointPillar(model_path, engine_path, stream, data_type);
 
-    publisher_ = this->create_publisher<vision_msgs::msg::Detection3DArray>("bbox", 700);
+    publisher_ = this->create_publisher<vision_msgs::msg::Detection3DArray>("bbox", 1);
+
+    //QoS: sensor profile
+    static const rclcpp::QoS sensor_qos_profile = rclcpp::QoS(5).best_effort().durability_volatile();
 
     subscription_ = this->create_subscription<sensor_msgs::msg::PointCloud2>(
-      "/point_cloud", 700, std::bind(&MinimalPublisher::topic_callback, this, _1));
+      "/point_cloud", sensor_qos_profile, std::bind(&MinimalPublisher::topic_callback, this, _1));
 
   }
 
@@ -196,8 +199,8 @@ private:
 
         detection.bbox.center.orientation = orientation;
 
-        hyp.id = std::to_string(nms_pred[i].id);
-        hyp.score = nms_pred[i].score;
+        hyp.hypothesis.class_id = std::to_string(nms_pred[i].id);
+        hyp.hypothesis.score = nms_pred[i].score;
         
         detection.header = msg->header;
         

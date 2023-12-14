@@ -16,9 +16,14 @@ Node details:
 </p>
 
 ## Requirements
-Tested on Ubuntu 20.04 and ROS2 Foxy.
+Tested on Ubuntu 22.04 and ROS2 Humble.
+- pcl library 
 - TensorRT 8.2(or above)
-- TensorRT OSS 22.02 (see how to install below)
+- TensorRT OSS 22.02 (or above)
+```
+sudo apt install libpcl-dev
+```
+
 ```
 git clone -b 22.02 https://github.com/NVIDIA/TensorRT.git TensorRT
 cd TensorRT
@@ -31,9 +36,11 @@ cp libnvinfer_plugin.so.8.2.* /usr/lib/$ARCH-linux-gnu/libnvinfer_plugin.so.8.2.
 cp libnvinfer_plugin_static.a /usr/lib/$ARCH-linux-gnu/libnvinfer_plugin_static.a
 ```
 - [TAO Converter](https://docs.nvidia.com/tao/tao-toolkit/text/tensorrt.html#installing-the-tao-converter)
-- [ROS2 Foxy](https://docs.ros.org/en/foxy/Installation.html)
+- [ROS2 Humble](https://docs.ros.org/en/humble/Installation.html)
 
 ## Usage
+### Cuda version
+Change the CMakeLists.txt 
 
 1. This project assumes that you have already trained your model using NVIDIA TAO Toolkit and have an **.etlt** file. If not, please refer [here](https://docs.nvidia.com/tao/tao-toolkit/text/point_cloud/index.html) for information on how to do this. The pre-trained PointPillars model used by this project can be found [here](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/tao/models/pointpillarnet/files).
 2. Use **tao-converter** to generate a TensorRT engine from your model. For instance:
